@@ -1,0 +1,8 @@
+- 6502 MOS tarafindan uretilen bir islemci, NES`te kullanilan Ricoh tarafindan modifiye edilmis(2A03) bir hali. Ses ve kontrolcu icin fazladan ozellikler var.
+- 40 tane dis dunyaya acilan bacagi var.
+    - 8 tane veri bacagi(data bus).
+    - 16 tane adres bacagi(adres bus).
+- Yazmaclari ve ALUsu 8 bit, tek seferde 8 bitlik verilerle islem yapiyor. Adres yolu 16bit ama o adreslerden tek seferde alabilecegi veri boyutu 8bit, 16bitlik bir adres yolu ile toplam 64KB boyutunda bir alani adresleyebiliyor.
+- Opcodelari 8bit, tek dongude bir opcodeu bellekten cekebiliyor. PCnin gosterdigi adresteki opcodeu okuyor, opcodeun adresleme moduna gore sonrasindaki kac bytein operand oldugunu anliyor ve sonraki bytelari operand olarak okuyor. operandlar bittiginde PCnin son kaldigi yer(her okumada 1 artiyor) bir sonraki opcodea denk geliyor.
+- Opcodedan sonra kac byte okunacagi opcodeun adresleme moduna bagli, adresleme modu operand sayisini belirliyor bu da komutun kac dongude tamamlanacagini etkiliyor.
+- Ayni komutun 3 veya 4 dongude biten opcodelari olabiliyor. Ornegin LDA zero page adresten okursa adres 1 byte olarak geliyor ve 3 dongude bitiyor(1 dongu opc oku, 1 dongu adresi oku, 1 dongu adresteki veriyi oku). 2 byte adresli versiyonu kullanilsaydi adresi okumak 2 dongu surecekti cunku islemci tek seferde 1 byte okuyabiliyor, adres 2 byte oldugu icin adresi okumasi 2 dongu surecekti. 

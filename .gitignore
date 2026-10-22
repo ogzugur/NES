@@ -1,0 +1,5 @@
+build/
+
+# Oyun ROM'ları telifli, repoya girmez. Test ROM'ları serbestçe dağıtılabilir ama
+# onları da indirme script'iyle almayı tercih edebiliriz.
+roms/
